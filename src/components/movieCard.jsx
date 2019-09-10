@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button, Card } from "react-bootstrap";
 
 class MovieCard extends Component {
   state = {};

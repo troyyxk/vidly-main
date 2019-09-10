@@ -3,6 +3,7 @@ import Joi from "joi-browser";
 import Form from "./common/form";
 import { getMovie, saveMovie } from "../services/movieService";
 import { getGenres } from "../services/genreService";
+import MovieCard from "./movieCard";
 
 class MovieForm extends Form {
   state = {
@@ -80,13 +81,20 @@ class MovieForm extends Form {
     return (
       <div>
         <h1>Movie Form</h1>
-        <form onSubmit={this.handleSubmit}>
-          {this.renderInput("title", "Title")}
-          {this.renderSelect("genreId", "Genre", this.state.genres)}
-          {this.renderInput("numberInStock", "Number in Stock", "number")}
-          {this.renderInput("dailyRentalRate", "Rate")}
-          {this.renderButton("Save")}
-        </form>
+        <div className="row">
+          <div className="col-md-6">
+            <form onSubmit={this.handleSubmit}>
+              {this.renderInput("title", "Title")}
+              {this.renderSelect("genreId", "Genre", this.state.genres)}
+              {this.renderInput("numberInStock", "Number in Stock", "number")}
+              {this.renderInput("dailyRentalRate", "Rate")}
+              {this.renderButton("Save")}
+            </form>
+          </div>
+          <div className="col-md-6">
+            <MovieCard />
+          </div>
+        </div>
       </div>
     );
   }
